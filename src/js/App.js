@@ -26,7 +26,7 @@ class App extends React.Component {
     });
   }
 
-  setInput(key, value) {
+  handleInput(key, value) {
     this.setState({
       [key]: value,
     });
@@ -40,7 +40,7 @@ class App extends React.Component {
           <input
             placeholder="Add task"
             value={this.state.task}
-            onChange={(e) => this.setInput("task", e.target.value)}
+            onChange={(e) => this.handleInput("task", e.target.value)}
           />
           <button id="btn" onClick={() => this.add()}>
             Add
