@@ -1,14 +1,27 @@
+* {
+  box-sizing: border-box;
+  color: #333;
+}
+
 body {
+  background-color: #81a69b;
+  background-image: url(http://static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-background.png);
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#list-container {
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  list-style: none;
+}
+
+#list-form,
+li {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1a441acb;
-}
-
-#btn {
-  margin-left: 0.5rem;
-  height: 1.4rem;
-  color: #d7e6d7cb;
-  background-color: black;
-  border: none;
 }
