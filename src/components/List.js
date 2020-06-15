@@ -24,7 +24,6 @@ export default class List extends React.Component {
   };
   remove = (itemToRemove) => {
     const newArr = this.state.list.filter((item) => item !== itemToRemove);
-    console.log(newArr);
     this.setState({
       list: newArr,
     });
