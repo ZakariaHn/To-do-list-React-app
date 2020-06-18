@@ -10,8 +10,8 @@ export default class List extends React.Component {
     };
   }
 
-  changeHandle = (e) => {
-    this.setState({ userInput: e.target.value });
+  changeHandel = (e) => {
+    this.setState({ userInput: e.target.value.trim() });
   };
 
   add = (e) => {
@@ -19,28 +19,50 @@ export default class List extends React.Component {
     const userText = this.state.userInput;
     this.setState({
       userInput: "",
-      list: [...this.state.list, userText],
+      list: [
+        ...this.state.list,
+        { id: this.state.list.length, title: userText, done: false },
+      ],
     });
   };
+
   remove = (itemToRemove) => {
-    const newArr = this.state.list.filter((item) => item !== itemToRemove);
+    const newArr = this.state.list.filter((item) => item.id !== itemToRemove);
     this.setState({
       list: newArr,
     });
   };
+
+  check = (itemToCheck) => {
+    const newArr = this.state.list.filter((item) => {
+      if (item.id === itemToCheck) {
+        item.done = !item.done;
+      }
+      return item;
+    });
+
+    this.setState({
+      list: newArr,
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
-        <form id="list-form" onSubmit={this.add}>
+        <form onSubmit={this.add}>
           <input
             type="text"
             value={this.state.userInput}
-            onChange={this.changeHandle}
-            placeholder="Write Task"
+            onChange={this.changeHandel}
+            placeholder="type something"
           />
           <input type="submit" value="Add" />
         </form>
-        <UserList list={this.state.list} del={this.remove} />
+        <UserList
+          list={this.state.list}
+          remove={this.remove}
+          check={this.check}
+        />
       </React.Fragment>
     );
   }
