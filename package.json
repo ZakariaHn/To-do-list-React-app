@@ -1,21 +1,28 @@
 {
-  "name": "First-React-App",
+  "name": "To-do-list-React-app",
   "version": "1.0.0",
-  "description": "",
+  "homepage": "https://zakariahn.github.io/To-do-list-React-app",
+  "description": "To do list",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
   "author": "zakaria",
   "license": "ISC",
   "dependencies": {
+    "gh-pages": "^3.0.0",
     "@frontendmasters/pet": "^1.0.3",
     "import": "0.0.6",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.0.0"
   },
   "browserslist": {
     "production": [
