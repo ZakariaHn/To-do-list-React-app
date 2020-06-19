@@ -1,0 +1,22 @@
+@mixin inputAndButtun {
+  border: none;
+  color: #95dada;
+  font-size: 0.9rem;
+  background: url("../img/colors.png");
+  background-size: 300%;
+  background-position: right;
+}
+
+@mixin borders {
+  border-width: 0.1rem;
+  border-style: solid;
+  border-image-repeat: stretch;
+  border-image-slice: 20;
+  border-image-source: repeating-linear-gradient(
+    15deg,
+    rgba(80, 28, 35, 0.747),
+    rgba(252, 249, 249, 0.933),
+    rgba(77, 26, 32, 0.747),
+    rgba(252, 249, 249, 0.933)
+  );
+}

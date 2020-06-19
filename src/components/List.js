@@ -49,20 +49,28 @@ export default class List extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <form onSubmit={this.add}>
-          <input
-            type="text"
-            value={this.state.userInput}
-            onChange={this.changeHandel}
-            placeholder="type something"
-          />
-          <input type="submit" value="Add" />
-        </form>
-        <UserList
-          list={this.state.list}
-          remove={this.remove}
-          check={this.check}
-        />
+        <div className="container">
+          <div className="datafield">
+            <div className="heading">
+              <h3>To Do</h3>
+            </div>
+            <form className="user" onSubmit={this.add}>
+              <input
+                type="text"
+                id="userText"
+                value={this.state.userInput}
+                onChange={this.changeHandel}
+                placeholder="type something"
+              />
+              <input className="button" type="submit" value="" />
+            </form>
+            <UserList
+              list={this.state.list}
+              remove={this.remove}
+              check={this.check}
+            />
+          </div>
+        </div>
       </React.Fragment>
     );
   }
