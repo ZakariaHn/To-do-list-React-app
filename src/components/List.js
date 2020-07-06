@@ -1,77 +1,58 @@
-// import React from "react";
-// import UserList from "./UserList";
+import React, { Fragment, useState } from "react";
+import UserList from "./UserList";
 
-// export default class List extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       userInput: "",
-//       list: [],
-//     };
-//   }
+const List = () => {
+  const [userInput, setUserInput] = useState("");
+  const [list, setList] = useState([]);
 
-//   changeHandel = (e) => {
-//     this.setState({ userInput: e.target.value.trim() });
-//   };
+  const add = (e) => {
+    e.preventDefault();
+    setUserInput("");
+    setList([...list, { id: list.length, title: userInput, done: false }]);
+  };
 
-//   add = (e) => {
-//     e.preventDefault();
-//     const userText = this.state.userInput;
-//     this.setState({
-//       userInput: "",
-//       list: [
-//         ...this.state.list,
-//         { id: this.state.list.length, title: userText, done: false },
-//       ],
-//     });
-//   };
+  const remove = (itemToRemove) => {
+    const newArr = list.filter((item) => item.id !== itemToRemove);
+    setList({
+      list: newArr,
+    });
+  };
 
-//   remove = (itemToRemove) => {
-//     const newArr = this.state.list.filter((item) => item.id !== itemToRemove);
-//     this.setState({
-//       list: newArr,
-//     });
-//   };
+  const check = (itemToCheck) => {
+    const newArr = list.filter((item) => {
+      if (item.id === itemToCheck) {
+        item.done = !item.done;
+      }
+      return item;
+    });
 
-//   check = (itemToCheck) => {
-//     const newArr = this.state.list.filter((item) => {
-//       if (item.id === itemToCheck) {
-//         item.done = !item.done;
-//       }
-//       return item;
-//     });
+    setList({
+      list: newArr,
+    });
+  };
 
-//     this.setState({
-//       list: newArr,
-//     });
-//   };
+  return (
+    <Fragment>
+      <div className="container">
+        <div className="datafield">
+          <div className="heading">
+            <h3>To Do</h3>
+          </div>
+          <form className="user" onSubmit={add}>
+            <input
+              type="text"
+              id="userText"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value.trim())}
+              placeholder="type something"
+            />
+            <input className="button" type="submit" value="" />
+          </form>
+          <UserList list={list} remove={remove} check={check} />
+        </div>
+      </div>
+    </Fragment>
+  );
+};
 
-//   render() {
-//     return (
-//       <React.Fragment>
-//         <div className="container">
-//           <div className="datafield">
-//             <div className="heading">
-//               <h3>To Do</h3>
-//             </div>
-//             <form className="user" onSubmit={this.add}>
-//               <input
-//                 type="text"
-//                 id="userText"
-//                 value={this.state.userInput}
-//                 onChange={this.changeHandel}
-//                 placeholder="type something"
-//               />
-//               <input className="button" type="submit" value="" />
-//             </form>
-//             <UserList
-//               list={this.state.list}
-//               remove={this.remove}
-//               check={this.check}
-//             />
-//           </div>
-//         </div>
-//       </React.Fragment>
-//     );
-//   }
-// }
+export default List;

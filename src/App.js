@@ -1,10 +1,10 @@
 import React from "react";
-import Lis from "./components/Lis";
+import List from "./components/List";
 
 const App = () => {
   return (
     <React.Fragment>
-      <Lis />
+      <List />
     </React.Fragment>
   );
 };
