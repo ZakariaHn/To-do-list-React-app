@@ -1,12 +1,12 @@
 import React from "react";
-import List from "./components/List";
+import Lis from "./components/Lis";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <List />
-      </React.Fragment>
-    );
-  }
-}
+const App = () => {
+  return (
+    <React.Fragment>
+      <Lis />
+    </React.Fragment>
+  );
+};
+
+export default App;
