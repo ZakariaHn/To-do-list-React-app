@@ -1,7 +1,8 @@
 import React from "react";
 
 const UserList = (props) => {
-  const toDos = props.list.map((item) => (
+  const { list, check, remove } = props;
+  const toDos = list.map((item) => (
     <div className="list">
       <ul className="listing">
         <li key={item.id}>
@@ -10,13 +11,13 @@ const UserList = (props) => {
             type="checkbox"
             value={item.done}
             onChange={() => {
-              props.check(item.id);
+              check(item.id);
             }}
           />
           {item.title}
           <i
             onClick={() => {
-              props.remove(item.id);
+              remove(item.id);
             }}
           >
             🗑
