@@ -13,9 +13,7 @@ const List = () => {
 
   const remove = (itemToRemove) => {
     const newArr = list.filter((item) => item.id !== itemToRemove);
-    setList({
-      list: newArr,
-    });
+    setList([newArr]);
   };
 
   const check = (itemToCheck) => {
@@ -26,9 +24,7 @@ const List = () => {
       return item;
     });
 
-    setList({
-      list: newArr,
-    });
+    setList([newArr]);
   };
 
   return (
