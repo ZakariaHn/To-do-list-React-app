@@ -1,4 +1,4 @@
-# To do list/React application
+# To do list/ React application
 
 # Installation:
 Navigate to the cloned directory, in the command line `npm i` then `npm start`
