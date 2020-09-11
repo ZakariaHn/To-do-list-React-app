@@ -1,7 +1,7 @@
 {
-  "name": "to_do_list_react_app",
+  "name": "to-do-list-react",
   "version": "1.0.0",
-  "homepage": "https://zakariahn.github.io/To-do-list-React-app",
+  "homepage": "https://zakariahn.github.io/to-do-list-react",
   "description": "To do list",
   "main": "index.js",
   "scripts": {
